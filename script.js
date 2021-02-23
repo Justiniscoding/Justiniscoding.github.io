@@ -15,7 +15,7 @@ function readFile(file)
     }
     rawFile.send(null);
 }
-const tileset = readFile('./tileset');
-const tilecols = readFile('./tilecols');
+const tileset = readFile('./test.tileset');
+const tilecols = readFile('./test.tilecols');
 alert(tileset);
 alert(tilecols);
