@@ -1,30 +1,43 @@
 <div class="container">
     <div class="page page1">
-        <h1 id="name" bind:this={nameEl}>a</h1>
+        <h1 id="name" bind:this={nameEl}> </h1>
     </div>
     <div class="page page2">
         page2
     </div>
 </div>
 
+
 <script>
     import { onMount } from "svelte";
-
+    
     const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890[];?!@#$%&*()+".split("");
-
+    
     let nameEl;
 
+    // TODO: Make name an HTML tag, like <Justiniscoding/>
+    // ? Maybe make the background black and make the text a glow-in-the-dark green
+
     onMount(() => {
-        nameEl.innerText = randomChars(12);
-        console.log(randomChars(2));
+        nameEl.innerText = randomChars(14);
+
+        hackerEffect(nameEl.innerText,"Justiniscoding",0,25);
     });
 
-    function hackerEffect(text,iterationNumber, delay){
+    function hackerEffect(text,result,iterationNumber,delay){
         let textArray = text.split("");
-
         
+        for(var i = 0; i < textArray.length; i++){
+            if(iterationNumber / 10 < i+1){
+                textArray[i] = randomChar();
+            }else if(iterationNumber / 10 == i+1){
+                textArray[i] = result.charAt(i);
+            }
+        }
 
-        setTimeout(() => hackerEffect(text,++iterationNumber),delay);
+        nameEl.innerText = textArray.join("");
+
+        setTimeout(() => hackerEffect(textArray.join(""),result,++iterationNumber,delay),delay);
     }
 
     function randomChar(){
@@ -38,9 +51,11 @@
 
 <style>
     #name{
-        color:black;
+        color:white;
 
-        font-size:7vw;
+        text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
+
+        font-size:6.5vw;
         font-family: monospace;
         font-weight: 100;
         letter-spacing: 0.5rem;
@@ -70,6 +85,6 @@
         align-items: center;
         justify-content: center;
 
-        background-color: lightgoldenrodyellow;
+        background-color: black;
     }
 </style>
