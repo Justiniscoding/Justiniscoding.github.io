@@ -1,0 +1,8 @@
+html,body{
+    margin:0;
+    padding:0;
+    border: none;
+    overflow-x:none;
+    font-size:clamp(3vw,2vh,6vh);
+    overflow-y: scroll;
+}
