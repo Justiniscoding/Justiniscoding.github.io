@@ -11,29 +11,35 @@
 <script>
     import {hackerEffect, randomChars} from "$lib/hackerEffect.js"
 
-    import { onMount } from "svelte";
+    import {onMount} from "svelte";
     
     let nameEl;
 
     // TODO: Make name an HTML tag, like <Justiniscoding/>
 
-    onMount(() => {
-        hackerEffect(randomChars(14),"Justiniscoding",0,25,text => {
-            nameEl.innerText = text;
-        });
-        import("$lib/ScrollMagic.min.js");
-
-        const controller = new ScrollMagic.Controller();
-
-
+    
+    // const controller = new ScrollMagic.Controller();
+    
+    // var scene = new ScrollMagic.Scene({
+        //     duration:100,
+        //     offset:50
+        // });
+        
+        // scene.setPin("#name");
+        
+        // scene.addTo(controller);
+        
+        onMount(() => {
+            hackerEffect(randomChars(14),"Justiniscoding",0,25,text => {
+                nameEl.innerText = text;
+            });
+            console.log(ScrollMagic);
     });
 
 </script>
 
 <style>
     #name{
-        color:white;
-
         color:#0FFF50;
 
         font-size:6.5vw;
