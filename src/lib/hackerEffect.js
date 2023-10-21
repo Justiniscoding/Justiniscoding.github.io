@@ -1,12 +1,12 @@
-const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890[];?!@#$%&*()+".split("");
+const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234767890[];?!@#$%&*()+".split("");
 
 export function hackerEffect(text,result,iterationNumber,delay, callback){
     let textArray = text.split("");
     
     for(var i = 0; i < textArray.length; i++){
-        if(iterationNumber / 10 < i+1){
+        if(iterationNumber / 7 < i+1){
             textArray[i] = randomChar();
-        }else if(iterationNumber / 10 == i+1){
+        }else if(iterationNumber / 7 == i+1){
             textArray[i] = result.charAt(i);
         }
     }
