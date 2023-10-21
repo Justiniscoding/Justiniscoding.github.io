@@ -21,7 +21,13 @@
         hackerEffect(randomChars(14),"Justiniscoding",0,25,text => {
             nameEl.innerText = text;
         });
+        import("$lib/ScrollMagic.min.js");
+
+        const controller = new ScrollMagic.Controller();
+
+
     });
+
 </script>
 
 <style>
