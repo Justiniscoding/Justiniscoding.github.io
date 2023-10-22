@@ -1,9 +1,10 @@
 <div class="container">
     <div class="page page1">
         <h1 id="name" bind:this={nameEl}> </h1>
+        <Socials/>
     </div>
     <div class="page page2">
-        page2
+        pagee
     </div>
 </div>
 
@@ -11,11 +12,13 @@
 <script>
     import {hackerEffect, randomChars} from "$lib/hackerEffect.js"
 
+    import Socials from "../components/socials.svelte"
+
     import {onMount} from "svelte";
     
     let nameEl;
 
-    // TODO: Make name an HTML tag, like <Justiniscoding/>
+    //TODO: Make name an HTML tag, like <Justiniscoding/>
 
     
     onMount(() => {
@@ -28,7 +31,7 @@
     function scrollingEffectSetup(){
         const controller = new ScrollMagic.Controller();
         var scene = new ScrollMagic.Scene({
-            duration:500,
+            duration:400,
             offset:0
         });
 
@@ -36,11 +39,12 @@
 
         timeline.to(".page1",1,{scale: 0.75});
         timeline.to(".page1",1,{translateX:"-100%"});
-        timeline.to(".page2",1,{translateX:"100%"});
+        timeline.fromTo(".page2",1,{translateX:"100%", scale:0.75},{translateX:"0%"});
+        timeline.to(".page2",1,{scale:1});
     
         scene.setTween(timeline);
         scene.addTo(controller);
-        scene.setPin(".page1");
+        scene.setPin(".container");
         scene.addIndicators();
     }
 
@@ -57,10 +61,13 @@
         font-weight: 100;
         letter-spacing: 0.5rem;
 
-        margin-top:-40vh;
+        margin:0;
+
+        padding-top:20vh;
     }
 
     .container{
+        height:100vh;
         padding:0;
         margin:0;
     }
@@ -73,15 +80,17 @@
     }
 
     .page1{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-
         background-color: black;
     }
 
     .page2{
-        display:flex;
+        scale:1;
+
+        position:absolute;
+
+        top:0;
+        left:0;
+        z-index:-1;
 
         background-color: red;
     }
