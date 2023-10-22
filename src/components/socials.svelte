@@ -1,8 +1,8 @@
 <div class="socials">
-    <Fa icon={faStackOverflow}/>
-    <Fa icon={faGithub}/>
-    <Fa icon={faSlack}/>
-    <Fa icon={faCodepen}/>
+    <Fa class=icon icon={faStackOverflow} color=#fff/>
+    <Fa class=icon icon={faGithub} color=#fff/>
+    <Fa class=icon icon={faCodepen} color=#fff/>
+    <Fa class=icon icon={faSlack} color=#fff/>
 </div>
 
 <script>
@@ -12,11 +12,22 @@
 
 <style>
     .socials{
-        /* display:flex; */
+        padding-top: 30vh;
 
-        /* gap:1rem; */
-        /* justify-content: center; */
+        display:flex;
 
-        /* width:100vw; */
+        gap:4vw;
+        justify-content: center;
+
+        width:100vw;
+    }
+
+    :global(.icon){
+        transition:300ms;
+    }
+
+    :global(.icon:hover){
+        scale:2;
+        transition:100ms;
     }
 </style>

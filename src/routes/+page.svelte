@@ -25,10 +25,11 @@
         hackerEffect(randomChars(14),"Justiniscoding",0,15,text => {
             nameEl.innerText = text;
         });
-        scrollingEffectSetup();
+
+        scrollMagicSetup();
     });
 
-    function scrollingEffectSetup(){
+    function scrollMagicSetup(){
         const controller = new ScrollMagic.Controller();
         var scene = new ScrollMagic.Scene({
             duration:400,
@@ -40,7 +41,7 @@
         timeline.to(".page1",1,{scale: 0.75});
         timeline.to(".page1",1,{translateX:"-100%"});
         timeline.fromTo(".page2",1,{translateX:"100%", scale:0.75},{translateX:"0%"});
-        timeline.to(".page2",1,{scale:1});
+        timeline.to(".page2",1,{scale:1, zIndex:1});
     
         scene.setTween(timeline);
         scene.addTo(controller);
@@ -63,7 +64,7 @@
 
         margin:0;
 
-        padding-top:20vh;
+        padding-top:30vh;
     }
 
     .container{
