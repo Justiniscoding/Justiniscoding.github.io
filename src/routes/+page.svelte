@@ -18,28 +18,38 @@
     // TODO: Make name an HTML tag, like <Justiniscoding/>
 
     
-    // const controller = new ScrollMagic.Controller();
-    
-    // var scene = new ScrollMagic.Scene({
-        //     duration:100,
-        //     offset:50
-        // });
-        
-        // scene.setPin("#name");
-        
-        // scene.addTo(controller);
-        
-        onMount(() => {
-            hackerEffect(randomChars(14),"Justiniscoding",0,25,text => {
-                nameEl.innerText = text;
-            });
-            console.log(ScrollMagic);
+    onMount(() => {
+        hackerEffect(randomChars(14),"Justiniscoding",0,15,text => {
+            nameEl.innerText = text;
+        });
+        scrollingEffectSetup();
     });
+
+    function scrollingEffectSetup(){
+        const controller = new ScrollMagic.Controller();
+        var scene = new ScrollMagic.Scene({
+            duration:500,
+            offset:0
+        });
+
+        const timeline = new TimelineMax();
+
+        timeline.to(".page1",1,{scale: 0.75});
+        timeline.to(".page1",1,{translateX:"-100%"});
+        timeline.to(".page2",1,{translateX:"100%"});
+    
+        scene.setTween(timeline);
+        scene.addTo(controller);
+        scene.setPin(".page1");
+        scene.addIndicators();
+    }
 
 </script>
 
 <style>
     #name{
+        text-align: center;
+
         color:#0FFF50;
 
         font-size:6.5vw;
@@ -51,7 +61,6 @@
     }
 
     .container{
-        /* scroll-snap-type: proximity; */
         padding:0;
         margin:0;
     }
@@ -69,5 +78,11 @@
         justify-content: center;
 
         background-color: black;
+    }
+
+    .page2{
+        display:flex;
+
+        background-color: red;
     }
 </style>
