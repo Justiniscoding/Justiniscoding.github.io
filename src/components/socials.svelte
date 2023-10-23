@@ -1,13 +1,29 @@
 <div class="socials">
-    <Fa class=icon icon={faStackOverflow} color=#fff/>
-    <Fa class=icon icon={faGithub} color=#fff/>
-    <Fa class=icon icon={faCodepen} color=#fff/>
-    <Fa class=icon icon={faSlack} color=#fff/>
+    <Fa class=icon icon={faEnvelope} color={iconColor}/>
+    <Fa class=icon icon={faDiscord} color={iconColor}/>
+    <Fa class=icon icon={faGithub} color={iconColor}/>
+    <Fa class=icon icon={faStackOverflow} color={iconColor}/>
+    <Fa class=icon icon={faCodepen} color={iconColor}/>
+    <!-- <Fa class=icon icon={faSlack} color={iconColor}/> -->
 </div>
 
 <script>
     import Fa from "svelte-fa"
-    import {faCodepen, faGithub, faSlack, faStackOverflow} from "@fortawesome/free-brands-svg-icons"
+
+    import {faCodepen, faDiscord, faGithub, faStackOverflow} from "@fortawesome/free-brands-svg-icons"
+    import {faEnvelope}  from "@fortawesome/free-solid-svg-icons"
+
+    import { onMount } from "svelte";
+
+    import gsap from "gsap"
+
+    var iconColor = 123;
+
+    onMount(() => {
+        // var tween = gsap.to(".icon",{autoCSS:false,scale:2,color:"#39ff14", duration:1});
+        tween.play();
+    });
+
 </script>
 
 <style>
@@ -28,6 +44,6 @@
 
     :global(.icon:hover){
         scale:2;
-        transition:100ms;
+        transition:150ms;
     }
 </style>

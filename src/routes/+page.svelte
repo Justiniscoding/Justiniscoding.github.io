@@ -40,7 +40,7 @@
 
         timeline.to(".page1",1,{scale: 0.75});
         timeline.to(".page1",1,{translateX:"-100%"});
-        timeline.fromTo(".page2",1,{translateX:"100%", scale:0.75},{translateX:"0%"});
+        timeline.fromTo(".page2",1,{translateX:"100%", scale:0.75},{translateX:"0%"},1.1);
         timeline.to(".page2",1,{scale:1, zIndex:1});
     
         scene.setTween(timeline);
