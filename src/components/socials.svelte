@@ -21,7 +21,7 @@
 
     onMount(() => {
         // var tween = gsap.to(".icon",{autoCSS:false,scale:2,color:"#39ff14", duration:1});
-        tween.play();
+        // tween.play();
     });
 
 </script>
