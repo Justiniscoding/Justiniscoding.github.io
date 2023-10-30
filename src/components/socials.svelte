@@ -1,10 +1,9 @@
 <div class="socials">
-    <Fa class=icon icon={faEnvelope} color={iconColor}/>
-    <Fa class=icon icon={faDiscord} color={iconColor}/>
-    <Fa class=icon icon={faGithub} color={iconColor}/>
-    <Fa class=icon icon={faStackOverflow} color={iconColor}/>
-    <Fa class=icon icon={faCodepen} color={iconColor}/>
-    <!-- <Fa class=icon icon={faSlack} color={iconColor}/> -->
+    <Fa class=icon scale=1x icon={faEnvelope} color=white/>
+    <Fa class=icon icon={faDiscord} color=white/>
+    <Fa class=icon icon={faGithub} color=white/>
+    <Fa class=icon icon={faStackOverflow} color=white/>
+    <Fa class=icon icon={faCodepen} color=white/>
 </div>
 
 <script>
@@ -17,11 +16,18 @@
 
     import gsap from "gsap"
 
-    var iconColor = 123;
-
     onMount(() => {
-        // var tween = gsap.to(".icon",{autoCSS:false,scale:2,color:"#39ff14", duration:1});
-        // tween.play();
+        gsap.utils.toArray(".icon").forEach((icon,i) => {
+            var tween = gsap.to(icon.querySelectorAll("path"),{
+                paused:true,
+                fill:"#5865F2",
+                scale:1.5,
+                transformOrigin:"center"
+            });
+
+            icon.addEventListener("mouseenter", () => tween.play());
+            icon.addEventListener("mouseleave", () => tween.reverse());
+        });
     });
 
 </script>
@@ -36,14 +42,5 @@
         justify-content: center;
 
         width:100vw;
-    }
-
-    :global(.icon){
-        transition:300ms;
-    }
-
-    :global(.icon:hover){
-        scale:2;
-        transition:150ms;
     }
 </style>
